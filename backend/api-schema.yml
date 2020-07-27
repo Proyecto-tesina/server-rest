@@ -1,0 +1,563 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /events/camera/:
+    get:
+      operationId: listCameraEvents
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    timestamp:
+                      type: string
+                      format: date-time
+                    status:
+                      type: string
+                      maxLength: 255
+                  required:
+                  - timestamp
+                  - status
+          description: ''
+    post:
+      operationId: createCameraEvent
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id001
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+              required:
+              - timestamp
+              - status
+          application/x-www-form-urlencoded:
+            schema: *id001
+          multipart/form-data:
+            schema: *id001
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+  /events/camera/{id}/:
+    get:
+      operationId: retrieveCameraEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this camera event.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    put:
+      operationId: updateCameraEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this camera event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id002
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+              required:
+              - timestamp
+              - status
+          application/x-www-form-urlencoded:
+            schema: *id002
+          multipart/form-data:
+            schema: *id002
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    patch:
+      operationId: partial_updateCameraEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this camera event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id003
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+          application/x-www-form-urlencoded:
+            schema: *id003
+          multipart/form-data:
+            schema: *id003
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    delete:
+      operationId: destroyCameraEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this camera event.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /events/drt/:
+    get:
+      operationId: listDrtEvents
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    timestamp:
+                      type: string
+                      format: date-time
+                    status:
+                      type: string
+                      maxLength: 255
+                  required:
+                  - timestamp
+                  - status
+          description: ''
+    post:
+      operationId: createDrtEvent
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id004
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+              required:
+              - timestamp
+              - status
+          application/x-www-form-urlencoded:
+            schema: *id004
+          multipart/form-data:
+            schema: *id004
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+  /events/drt/{id}/:
+    get:
+      operationId: retrieveDrtEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this drt event.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    put:
+      operationId: updateDrtEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this drt event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id005
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+              required:
+              - timestamp
+              - status
+          application/x-www-form-urlencoded:
+            schema: *id005
+          multipart/form-data:
+            schema: *id005
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    patch:
+      operationId: partial_updateDrtEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this drt event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id006
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+          application/x-www-form-urlencoded:
+            schema: *id006
+          multipart/form-data:
+            schema: *id006
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    delete:
+      operationId: destroyDrtEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this drt event.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /events/player/:
+    get:
+      operationId: listPlayerEvents
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    timestamp:
+                      type: string
+                      format: date-time
+                    status:
+                      type: string
+                      maxLength: 255
+                  required:
+                  - timestamp
+                  - status
+          description: ''
+    post:
+      operationId: createPlayerEvent
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id007
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+              required:
+              - timestamp
+              - status
+          application/x-www-form-urlencoded:
+            schema: *id007
+          multipart/form-data:
+            schema: *id007
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+  /events/player/{id}/:
+    get:
+      operationId: retrievePlayerEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this player event.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    put:
+      operationId: updatePlayerEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this player event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id008
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+              required:
+              - timestamp
+              - status
+          application/x-www-form-urlencoded:
+            schema: *id008
+          multipart/form-data:
+            schema: *id008
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    patch:
+      operationId: partial_updatePlayerEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this player event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id009
+              properties:
+                timestamp:
+                  type: string
+                  format: date-time
+                status:
+                  type: string
+                  maxLength: 255
+          application/x-www-form-urlencoded:
+            schema: *id009
+          multipart/form-data:
+            schema: *id009
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  status:
+                    type: string
+                    maxLength: 255
+                required:
+                - timestamp
+                - status
+          description: ''
+    delete:
+      operationId: destroyPlayerEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this player event.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
