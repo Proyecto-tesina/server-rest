@@ -22,5 +22,5 @@ urlpatterns = [
     path('api/', schema_view, name='api-schema'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('events/', include('events.urls')),
+    path('', include('experiments.urls')),
 ]
