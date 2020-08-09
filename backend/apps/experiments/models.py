@@ -16,6 +16,9 @@ class Experiment(models.Model):
     started_at = models.DateTimeField(null=True, blank=True)
     ended_at = models.DateTimeField(null=True, blank=True)
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         return f'Experiment - {self.created_at}'
 
