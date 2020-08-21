@@ -31,7 +31,7 @@ class ExperimentViewSet(viewsets.ModelViewSet):
             return Response(serializer.errors)
 
     @action(detail=True, methods=['patch'])
-    def end(self, request):
+    def end(self, request, pk):
         experiment = self.get_object()
 
         serializer = ExperimentSerializer(
