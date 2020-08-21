@@ -31,7 +31,7 @@ class ExperimentViewSet(viewsets.ModelViewSet):
             return Response(serializer.errors)
 
     @action(detail=True, methods=['patch'])
-    def end(self, request, pk):
+    def end(self, request):
         experiment = self.get_object()
 
         serializer = ExperimentSerializer(
@@ -45,6 +45,12 @@ class ExperimentViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+    @action(detail=False, methods=['GET'])
+    def last(self, request):
+        experiment = Experiment.objects.first()
+        serializer = ExperimentSerializer(experiment)
+        return Response(serializer.data)
 
 
 class EventViewSet(viewsets.ModelViewSet):
