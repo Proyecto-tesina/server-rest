@@ -1,11 +1,9 @@
 from django.utils import timezone
-from rest_framework import viewsets, views
+from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import Event, Experiment
 from .serializers import EventSerializer, ExperimentSerializer
-import os
-import subprocess
 
 
 class ExperimentViewSet(viewsets.ModelViewSet):
@@ -56,9 +54,3 @@ class EventViewSet(viewsets.ModelViewSet):
 
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-
-
-class LauncherView(views.APIView):
-    def get(self, request):
-        path = os.path.join(os.path.dirname(__file__), '../../launcher.sh')
-        subprocess.call(path)
