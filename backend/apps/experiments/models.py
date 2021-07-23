@@ -3,11 +3,7 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 
 
-EVENT_NAMES = (
-    ('CAMERA', 'Camera'),
-    ('PLAYER', 'Player'),
-    ('DRT', 'Drt')
-)
+EVENT_NAMES = (("CAMERA", "Camera"), ("PLAYER", "Player"), ("DRT", "Drt"))
 
 
 class Experiment(models.Model):
@@ -17,16 +13,18 @@ class Experiment(models.Model):
     ended_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
-        return f'Experiment - {self.created_at}'
+        return f"Experiment - {self.created_at}"
 
     def clean(self):
         super().clean()
 
         if not self.started_at and self.ended_at:
-            raise ValidationError("Started_at should be specified if ended_at was specified")
+            raise ValidationError(
+                "Started_at should be specified if ended_at was specified"
+            )
 
         if self.started_at and self.ended_at and self._date_range_invalid():
             raise ValidationError("Started_at should be before to ended_at")
@@ -47,10 +45,8 @@ class Event(models.Model):
     status = models.CharField(max_length=255)
 
     experiment = models.ForeignKey(
-        Experiment,
-        on_delete=models.CASCADE,
-        related_name='events'
+        Experiment, on_delete=models.CASCADE, related_name="events"
     )
 
     def __str__(self):
-        return f'{self.name} - {self.timestamp}'
+        return f"{self.name} - {self.timestamp}"

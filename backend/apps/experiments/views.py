@@ -11,14 +11,12 @@ class ExperimentViewSet(viewsets.ModelViewSet):
     queryset = Experiment.objects.all()
     serializer_class = ExperimentSerializer
 
-    @action(detail=True, methods=['patch'])
+    @action(detail=True, methods=["patch"])
     def start(self, request, pk):
         experiment = self.get_object()
 
         serializer = ExperimentSerializer(
-            experiment,
-            data={'started_at': timezone.now()},
-            partial=True
+            experiment, data={"started_at": timezone.now()}, partial=True
         )
 
         if serializer.is_valid():
@@ -27,14 +25,12 @@ class ExperimentViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors)
 
-    @action(detail=True, methods=['patch'])
+    @action(detail=True, methods=["patch"])
     def end(self, request, pk):
         experiment = self.get_object()
 
         serializer = ExperimentSerializer(
-            experiment,
-            data={'ended_at': timezone.now()},
-            partial=True
+            experiment, data={"ended_at": timezone.now()}, partial=True
         )
 
         if serializer.is_valid():
@@ -43,7 +39,7 @@ class ExperimentViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors)
 
-    @action(detail=False, methods=['GET'])
+    @action(detail=False, methods=["GET"])
     def last(self, request):
         experiment = Experiment.objects.first()
         serializer = ExperimentSerializer(experiment)
